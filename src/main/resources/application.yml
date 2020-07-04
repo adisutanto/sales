@@ -1,1 +1,35 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    open-in-view: false
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
 
+app:
+  top-n: 10
+  n-month: 12
+
+---
+spring:
+  profiles: local
+  datasource:
+    platform: h2
+    url: jdbc:h2:~/h2/sales
+  flyway:
+    locations: classpath:/db/migration,classpath:/local/db/migration
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+
+---
+spring:
+  profiles: test
+  datasource:
+    platform: h2
+    generate-unique-name: true
+  flyway:
+    locations: classpath:/db/migration,classpath:/local/db/migration
