@@ -30,7 +30,7 @@ public class OrderItem {
     @Positive
     private Integer quantity;
 
-    private OrderItem() {
+    public OrderItem() {
     }
 
     public OrderItem(Order order, Product product) {

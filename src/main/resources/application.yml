@@ -10,6 +10,9 @@ spring:
 app:
   top-n: 10
   n-month: 12
+  cors:
+    allowed-origins: "http://localhost:4200"
+    allowed-methods: OPTIONS,GET,POST,PUT,DELETE
 
 ---
 spring:
