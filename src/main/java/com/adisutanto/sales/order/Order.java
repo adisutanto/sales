@@ -26,7 +26,7 @@ import java.util.List;
 @NaturalIdCache
 public class Order {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
     @Column(name = "order_date")
@@ -52,7 +52,7 @@ public class Order {
     }
 
     public void removeProduct(Product product) {
-        for (Iterator<OrderItem> iterator = products.iterator(); iterator.hasNext(); ) {
+        for (Iterator<OrderItem> iterator = products.iterator(); iterator.hasNext();) {
             OrderItem orderItem = iterator.next();
             if (orderItem.getOrder().equals(this) && orderItem.getProduct().equals(product)) {
                 iterator.remove();
